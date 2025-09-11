@@ -1,0 +1,69 @@
+<html>
+<head>
+<title>OddTasks.kt</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #cf8e6d;}
+.s3 { color: #bcbec4;}
+.s4 { color: #5f826b; font-style: italic;}
+.s5 { color: #6aab73;}
+.s6 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+OddTasks.kt</font>
+</center></td></tr></table>
+<pre><span class="s0">// src/main/kotlin/problems/OddTasks.kt</span>
+<span class="s2">package </span><span class="s1">problems</span>
+
+<span class="s2">object </span><span class="s1">OddTasks </span><span class="s3">{</span>
+
+    <span class="s4">/**</span>
+     <span class="s4">* TODO</span>
+     <span class="s4">* Cuenta cuántas consonantes hay en el texto.</span>
+     <span class="s4">* Ignora mayúsculas/minúsculas y descarta caracteres no alfabéticos.</span>
+     <span class="s4">* Ejemplo:</span>
+     <span class="s4">*  - countConsonants(&quot;Hola&quot;) -&gt; 2</span>
+     <span class="s4">*/</span>
+    <span class="s2">fun </span><span class="s1">countWords</span><span class="s3">(</span><span class="s1">text: String</span><span class="s3">)</span><span class="s1">: Int </span><span class="s3">{</span>
+        <span class="s2">return </span><span class="s1">text</span>
+            <span class="s3">.</span><span class="s1">trim</span><span class="s3">()</span>
+            <span class="s3">.</span><span class="s1">split</span><span class="s3">(</span><span class="s5">&quot;</span><span class="s2">\\</span><span class="s5">s+&quot;</span><span class="s3">.</span><span class="s1">toRegex</span><span class="s3">())</span>
+            <span class="s3">.</span><span class="s1">filter </span><span class="s3">{ </span><span class="s1">it</span><span class="s3">.</span><span class="s1">isNotEmpty</span><span class="s3">() }</span>
+            <span class="s3">.</span><span class="s1">size</span>
+    <span class="s3">}</span>
+
+
+    <span class="s4">/**</span>
+     <span class="s4">* TODO</span>
+     <span class="s4">* Determina si una frase es un pangrama,</span>
+     <span class="s4">* es decir, contiene todas las letras del alfabeto al menos una vez.</span>
+     <span class="s4">* Ejemplo:</span>
+     <span class="s4">*  - &quot;El veloz murciélago hindú comía feliz cardillo y kiwi&quot;</span>
+     <span class="s4">*  - &quot;The quick brown fox jumps over the lazy dog&quot;</span>
+     <span class="s4">*/</span>
+    <span class="s2">fun </span><span class="s1">selectionSortAscending</span><span class="s3">(</span><span class="s1">nums: MutableList</span><span class="s3">&lt;</span><span class="s1">Int</span><span class="s3">&gt;)</span><span class="s1">: MutableList</span><span class="s3">&lt;</span><span class="s1">Int</span><span class="s3">&gt; {</span>
+        <span class="s2">for </span><span class="s3">(</span><span class="s1">i </span><span class="s2">in </span><span class="s6">0 </span><span class="s1">until nums</span><span class="s3">.</span><span class="s1">size </span><span class="s3">- </span><span class="s6">1</span><span class="s3">) {</span>
+            <span class="s2">var </span><span class="s1">minIndex </span><span class="s3">= </span><span class="s1">i</span>
+            <span class="s2">for </span><span class="s3">(</span><span class="s1">j </span><span class="s2">in </span><span class="s1">i </span><span class="s3">+ </span><span class="s6">1 </span><span class="s1">until nums</span><span class="s3">.</span><span class="s1">size</span><span class="s3">) {</span>
+                <span class="s2">if </span><span class="s3">(</span><span class="s1">nums</span><span class="s3">[</span><span class="s1">j</span><span class="s3">] &lt; </span><span class="s1">nums</span><span class="s3">[</span><span class="s1">minIndex</span><span class="s3">]) {</span>
+                    <span class="s1">minIndex </span><span class="s3">= </span><span class="s1">j</span>
+                <span class="s3">}</span>
+            <span class="s3">}</span>
+            <span class="s2">if </span><span class="s3">(</span><span class="s1">minIndex </span><span class="s3">!= </span><span class="s1">i</span><span class="s3">) {</span>
+                <span class="s2">val </span><span class="s1">temp </span><span class="s3">= </span><span class="s1">nums</span><span class="s3">[</span><span class="s1">i</span><span class="s3">]</span>
+                <span class="s1">nums</span><span class="s3">[</span><span class="s1">i</span><span class="s3">] = </span><span class="s1">nums</span><span class="s3">[</span><span class="s1">minIndex</span><span class="s3">]</span>
+                <span class="s1">nums</span><span class="s3">[</span><span class="s1">minIndex</span><span class="s3">] = </span><span class="s1">temp</span>
+            <span class="s3">}</span>
+        <span class="s3">}</span>
+        <span class="s2">return </span><span class="s1">nums</span>
+    <span class="s3">}</span>
+
+</pre>
+</body>
+</html>
